@@ -143,7 +143,10 @@ namespace Etiquetas
                 string[] nameParts = paciente.nm_nome.Split(' ');
                 for (int i = 1; i < nameParts.Length - 1; i++)
                 {
-                    nameParts[i] = nameParts[i][0] + ".";
+                    if (!string.IsNullOrEmpty(nameParts[i]))
+                    {
+                        nameParts[i] = nameParts[i][0] + ".";
+                    }
                 }
                 // Join the parts back together
                 string abbreviatedName = string.Join(" ", nameParts);
